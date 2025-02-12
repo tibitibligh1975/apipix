@@ -5,11 +5,11 @@ import cors from 'cors';
 
 const app = express();
 
-// Configuração do CORS para permitir qualquer domínio
+// ConfiguraÃ§Ã£o do CORS para permitir qualquer domÃ­nio
 app.use(cors({
-  origin: '*', // Permite requisições de qualquer origem
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
+  origin: '*', // Permite requisiÃ§Ãµes de qualquer origem
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // MÃ©todos permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'], // CabeÃ§alhos permitidos
 }));
 
 app.use(express.json());
@@ -20,7 +20,7 @@ app.post('/g', async (req, res) => {
     const { name, cpf, offerId, email, phone, utmQuery } = req.body;
 
     if (!name || !cpf || !offerId || !email || !phone) {
-      return res.status(400).json({ error: 'Todos os campos obrigatórios devem ser preenchidos: name, cpf, offerId, email, phone.' });
+      return res.status(400).json({ error: 'Todos os campos obrigatÃ³rios devem ser preenchidos: name, cpf, offerId, email, phone.' });
     }
 
     const response = await axios.post('https://app.exattus.com/api/webhook/generate-pix/', {
@@ -50,7 +50,7 @@ app.post('/verify', async (req, res) => {
     const { paymentId } = req.body;
 
     if (!paymentId) {
-      return res.status(400).json({ error: 'O campo paymentId é obrigatório.' });
+      return res.status(400).json({ error: 'O campo paymentId Ã© obrigatÃ³rio.' });
     }
 
     const response = await axios.post('https://app.exattus.com/api/verify-payment', {
