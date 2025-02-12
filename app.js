@@ -69,7 +69,9 @@ app.post('/verify', async (req, res) => {
   }
 });
 
+const port = process.env.PORT || 8080;
+
 // Inicia o servidor
-app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
